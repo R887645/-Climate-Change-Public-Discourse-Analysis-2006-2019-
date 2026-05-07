@@ -1,11 +1,14 @@
 # 🌍 Climate Change Public Discourse Analysis (2006–2019)
 **End-to-End SQL & Power BI Project | PostgreSQL · Power BI · Data Analytics**
 
+![My Image Description](https://github.com/R887645/-Climate-Change-Public-Discourse-Analysis-2006-2019-/blob/main/Climate%20Cange%20image.png?raw=true)
 ---
 
 ## 📌 Project Overview
 
 This project presents a comprehensive end-to-end data analysis of global public discourse on climate change, built entirely without Python or external programming languages. Using **PostgreSQL 17** for all data engineering and **Microsoft Power BI** for interactive visualization, I analysed over **15.7 million tweets** spanning 13 years alongside a **4,913-record Global Disasters dataset** to answer two critical questions posed by a climate research organisation ahead of a policy briefing:
+
+![My Image Description](https://github.com/R887645/-Climate-Change-Public-Discourse-Analysis-2006-2019-/blob/main/Climate%20Change%20Analysis.png?raw=true)
 
 1. How have public **sentiment and stance** on climate change shifted over 13 years?
 2. Which **topics and regions** are driving the most divisive and aggressive discourse?
@@ -118,6 +121,12 @@ END AS gender
 
 **Performance indexes created** on `tweet_year`, `stance`, `topic`, and `aggressiveness` to support fast Power BI queries against 15.7M rows.
 
+![My Image Description](https://github.com/R887645/-Climate-Change-Public-Discourse-Analysis-2006-2019-/blob/main/Screenshot%202026-05-07%20102904.png?raw=true)
+
+![My Image Description](https://github.com/R887645/-Climate-Change-Public-Discourse-Analysis-2006-2019-/blob/main/Screenshot%202026-05-07%20102913.png?raw=true)
+
+![My Image Description](https://github.com/R887645/-Climate-Change-Public-Discourse-Analysis-2006-2019-/blob/main/Screenshot%202026-05-07%20103013.png?raw=true)
+
 ---
 
 ## 🔄 Phase 4: Data Wrangling & Transformation
@@ -209,6 +218,13 @@ The **believer-to-denier ratio of 9.48:1** has remained stable across the entire
 | Politics | 1,809,583 |
 | Donald Trump versus Science | 996,244 |
 
+
+![My Image description](https://github.com/R887645/-Climate-Change-Public-Discourse-Analysis-2006-2019-/blob/main/Screenshot%202026-05-07%20103115.png?raw=true)
+
+![My Image description](https://github.com/R887645/-Climate-Change-Public-Discourse-Analysis-2006-2019-/blob/main/Screenshot%202026-05-07%20103134.png?raw=true)
+
+![My Image description](https://github.com/R887645/-Climate-Change-Public-Discourse-Analysis-2006-2019-/blob/main/Screenshot%202026-05-07%20103240.png?raw=true)
+
 ---
 
 ## 🔍 Phase 6: Diagnostic Analytics
@@ -228,6 +244,9 @@ SELECT
 FROM vw_disaster_sentiment
 ORDER BY tweet_year;
 ```
+
+![My Image description](https://github.com/R887645/-Climate-Change-Public-Discourse-Analysis-2006-2019-/blob/main/Screenshot%202026-05-07%20103318.png?raw=true)
+
 
 ### Key Diagnostic Findings
 
@@ -259,6 +278,10 @@ ORDER BY aggressive_pct DESC;
 
 ## 📈 Phase 7: Power BI Dashboard
 
+![My Image Description](https://github.com/R887645/-Climate-Change-Public-Discourse-Analysis-2006-2019-/blob/main/climate%20data%20prep.png?raw=true)
+
+![My Image Description](https://github.com/R887645/-Climate-Change-Public-Discourse-Analysis-2006-2019-/blob/main/climate_data%20modelling.png?raw=true)
+
 The dashboard is structured across **3 interactive pages**, each answering a specific analytical question.
 
 ### Page 1 — Climate Change Public Sentiment & Stance Analysis
@@ -270,6 +293,9 @@ The dashboard is structured across **3 interactive pages**, each answering a spe
 - **Donut Chart:** Sentiment category breakdown
 - **Slicer:** Year range filter
 
+![My Image Description](https://github.com/R887645/-Climate-Change-Public-Discourse-Analysis-2006-2019-/blob/main/climage%20analysis%201.png?raw=true)
+
+
 ### Page 2 — Divisive Topics & Regional Aggression Hotspots
 > *Which topics and regions drive the most aggressive discourse?*
 
@@ -279,6 +305,9 @@ The dashboard is structured across **3 interactive pages**, each answering a spe
 - **Table:** Topic divisiveness scorecard
 - **Clustered Bar:** Stance distribution by topic
 
+![My Image Description](https://github.com/R887645/-Climate-Change-Public-Discourse-Analysis-2006-2019-/blob/main/climate%20analysis%202.png?raw=true)
+
+
 ### Page 3 — Diagnostic Analysis: Why Does Aggressive Discourse Occur?
 > *What factors explain aggressive discourse patterns?*
 
@@ -287,6 +316,8 @@ The dashboard is structured across **3 interactive pages**, each answering a spe
 - **Bar Chart:** Yearly aggressiveness ranking
 - **Donut + Bar:** Tweet volume and aggressiveness by gender
 - **Line Chart:** Monthly tweet volume trends
+
+![My Image Description](https://github.com/R887645/-Climate-Change-Public-Discourse-Analysis-2006-2019-/blob/main/Screenshot%202026-05-07%20101600.png?raw=true)
 
 ### DAX Measures (Sample)
 
@@ -343,46 +374,6 @@ DIVIDE(
 
 ---
 
-## 🚀 How to Reproduce This Project
-
-### Prerequisites
-- PostgreSQL 17+
-- pgAdmin 4
-- Power BI Desktop
-- PowerShell (Windows)
-
-### Steps
-
-**1. Clone the repository**
-```bash
-git clone https://github.com/yourusername/climate-change-discourse-analysis.git
-cd climate-change-discourse-analysis
-```
-
-**2. Download the dataset**
-- Twitter Dataset: [Mendeley Data](https://data.mendeley.com/datasets/mw8yd7z9wc-2)
-- Disasters Dataset: included in `/data/` folder
-
-**3. Create the database**
-```sql
-CREATE DATABASE climate_change_tweets_db;
-```
-
-**4. Run the SQL script**
-```bash
-psql -U postgres -d climate_change_tweets_db -f sql/climate_analysis.sql
-```
-
-**5. Import the data via PowerShell**
-```powershell
-& "C:\Program Files\PostgreSQL\17\bin\psql.exe" -U postgres -d climate_change_tweets_db -c "\copy climate_change_tweets_raw FROM 'path/to/The Climate Change Twitter Dataset.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',')"
-```
-
-**6. Open Power BI**
-- Open `dashboard/climate_dashboard.pbix`
-- Update the PostgreSQL connection to `localhost` / `climate_change_tweets_db`
-- Refresh all views
-
 ---
 
 ## 📋 SQL Script Structure
@@ -415,7 +406,7 @@ SECTION 4:  Diagnostic Analytics (4 queries)
 
 ## 🔗 Dashboard Link
 
-> 🌐 **[View Live Dashboard on Power BI Service](#)** ← *(replace with your published link)*
+> 🌐 **[View Live Dashboard on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiYmY1NWMwNTgtNmRiNC00ZGVjLTllMjUtMWE4YTZmNzEyZDFmIiwidCI6ImNmYzA4YzM2LWYxMGEtNDU1NS1iZjZiLWMwMjI4YzVlNjEzYSIsImMiOjJ9)*
 
 ---
 
@@ -425,8 +416,8 @@ SECTION 4:  Diagnostic Analytics (4 queries)
 Data Analyst · HNG Internship Stage 4
 May 2026
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://linkedin.com/in/yourprofile)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black)](https://github.com/yourusername)
+[Let's connect on LinkedIn](https://www.linkedin.com/in/rofiah-abdul-azeez/)
+[My Portfolio](https://img.shields.io/badge/GitHub-Follow-black)](https://rofiahportfolio.mystrikingly.com/)
 
 ---
 
