@@ -250,19 +250,19 @@ ORDER BY tweet_year;
 
 ### Key Diagnostic Findings
 
-**Finding 1 — Disaster events correlate with aggressive discourse**
+**Finding 1: Disaster events correlate with aggressive discourse**
 A correlation of **0.72** was found between annual disaster event counts and tweet aggressiveness. The year 2018 recorded the highest disaster count at 54 events, coinciding with elevated aggressive discourse.
 
-**Finding 2 — Politics drives the most divisive discourse**
+**Finding 2: Politics drives the most divisive discourse**
 Politics and Donald Trump versus Science score highest on the divisiveness index at **75.49** and **81.59** respectively. Both generate aggressive rates above 43%.
 
-**Finding 3 — Gender does not drive aggressiveness**
+**Finding 3: Gender does not drive aggressiveness**
 Aggressiveness rates across all gender groups are within 0.6 percentage points:
 - Male: 35.7% · Unknown: 35.4% · Female: 35.1%
 
 This confirms aggression is topic-driven, not demographic.
 
-**Finding 4 — Yearly aggressiveness ranking**
+**Finding 4: Yearly aggressiveness ranking**
 ```sql
 SELECT
     tweet_year,
